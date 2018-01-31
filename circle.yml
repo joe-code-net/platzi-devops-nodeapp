@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t nodeapp
+
+test:
+  override:
+    - docker run nodeapp npm test
