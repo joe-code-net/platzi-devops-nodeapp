@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    - docker build -t nodeapp
+    - docker build -t nodeapp .
 
 test:
   override:
