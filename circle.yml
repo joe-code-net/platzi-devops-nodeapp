@@ -12,7 +12,7 @@ test:
   override:
     - docker run nodeapp npm test
 
-deplyment:
+deployment:
   qa:
     branch: /feature_.*/
     commands:
