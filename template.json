@@ -1,0 +1,26 @@
+{ 
+    "builders": [
+      {
+        "type": "digitalocean",
+        "image": "coreos-stable",
+        "droplet_name": "platzi-devops-04",
+        "region": "sfo2",
+        "size": "s-1vcpu-1gb",
+        "ssh_username": "core",
+        "snapshot_name": "platzi-snapshot-04",
+        "snapshot_regions": "sfo2" 
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": [
+            "git clone https://github.com/joe-code-net/platzi-devops-nodeapp.git",
+            "cd platzi-devops-nodeapp",
+            "docker build -t nodeapp .",
+            "docker run -d -p 3000:3000 nodeapp"
+        ]
+      }
+    ]
+}
+
