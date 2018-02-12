@@ -20,4 +20,5 @@ deployment:
   prod:
     branch: master
     owner: joe-code-net
+    commands:
       - sh deployments/prod.sh
