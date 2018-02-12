@@ -1,13 +1,16 @@
 { 
+    "variables": {
+      "buid_number": "{{env `CIRCLE_BUILD_NUM`}}"
+    },
     "builders": [
       {
         "type": "digitalocean",
         "image": "coreos-stable",
-        "droplet_name": "platzi-devops-04",
+        "droplet_name": "platzi-devops-circleci",
         "region": "sfo2",
         "size": "s-1vcpu-1gb",
         "ssh_username": "core",
-        "snapshot_name": "platzi-snapshot-04",
+        "snapshot_name": "platzi-snapshot-{{user `build_number`}}",
         "snapshot_regions": "sfo2" 
       }
     ],

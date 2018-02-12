@@ -17,3 +17,7 @@ deployment:
     branch: /feature_.*/
     commands:
       - sh deployments/qa.sh
+  prod:
+    branch: master
+    owner: joe-code-net
+      - sh deployments/prod.sh
