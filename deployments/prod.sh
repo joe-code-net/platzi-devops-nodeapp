@@ -6,6 +6,6 @@ packer validate deployments/template.json &&
 packer build deployments/template.json &&
 export TF_VAR_image_id=$(curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_API_TOKEN" "https://api.digitalocean.com/v2/images?private=true" | jq ".images[] | select(.name == \"platzi-snapshot-$CIRCLE_BUILD_NUM\") | .id")
 echo $TF_VAR_image_id
-cd infra && terraform init -input=false && terraform apply -input=false && cd .. &&
+cd infra && terraform init -input=false && terraform apply -input=false -auto-approve && cd .. &&
 git add infra && git commit -m "Deployed $CIRCLE_BUILD_NUM [skip ci]" &&
 git push origin master
